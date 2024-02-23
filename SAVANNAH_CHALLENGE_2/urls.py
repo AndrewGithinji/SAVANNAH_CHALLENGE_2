@@ -17,7 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from SAVANNAH_CHALLENGE_2.views import hello_world
+from .views import CustomerListCreateView, CustomerDetailView, OrderListCreateView, OrderDetailView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', hello_world, name='hello_world'),
+    path('customers/', CustomerListCreateView.as_view(), name='customer-list-create'),
+    path('customers/<int:pk>/', CustomerDetailView.as_view(), name='customer-detail'),
+    path('orders/', OrderListCreateView.as_view(), name='order-list-create'),
+    path('orders/<int:pk>/', OrderDetailView.as_view(), name='order-detail'),
 ]

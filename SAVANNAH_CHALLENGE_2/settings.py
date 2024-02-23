@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'SAVANNAH_CHALLENGE_2',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -76,11 +78,11 @@ WSGI_APPLICATION = 'SAVANNAH_CHALLENGE_2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'savannah' / 'postgres',
-        'USER': 'savannah',
-        'PASSWORD':'TEST',
-        'HOST':'localhost',
-        'PORT':'5432',
+        'NAME': 'test',
+        'USER': 'test',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '5499',
     }
 }
 
