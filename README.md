@@ -18,43 +18,47 @@ Before you begin, ensure you have the following installed:
 
 1. **Clone the repository:**
 
-   ```bash
+   bash
    git clone https://github.com/AndrewGithinji/SAVANNAH_CHALLENGE_2.git
 
 2. **Create a virtual environment (optional but recommended):**
 
-    ```python3 -m venv venv
+    python3 -m venv venv
     source venv/bin/activate  # Activate the virtual environment
 
 3. **Apply Migrations:**
 
-    ```python manage.py makemigrations
+    python manage.py makemigrations
     python manage.py migrate
 
 4. **Create Superuser (if using Django Admin):**
 
-    ```python manage.py createsuperuser
+    python manage.py createsuperuser
 
 5. **Run the development server:**
 
-    ```python manage.py runserver
+    python manage.py runserver
     The application should now be running at http://localhost:8000.
 
 6. ### Running Tests
 
 # To run tests and check coverage:
 
-```coverage run --source='.' manage.py test
-    coverage report
+coverage run --source='.' manage.py test
+coverage report
 
 ## Deployment
 
-Instructions on how to deploy this project to a live system will be added later.
+* Instructions on how to deploy this project to a live system will be added later.
 
 ## Built With
+
 * Django - The web framework used
+
 * PostgreSQL - Database system
+
 * Django OAuth Toolkit - OAuth2 provider for Django
+
 * Social Auth App Django - Social authentication for Django
 
 
