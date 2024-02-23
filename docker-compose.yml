@@ -1,0 +1,33 @@
+version: '3.11'
+
+services:
+  # Django web service
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  # PostgreSQL database service
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: 
+      ports: 5499
+
+  # pgAdmin service
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 
+      PGADMIN_DEFAULT_PASSWORD: 
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
