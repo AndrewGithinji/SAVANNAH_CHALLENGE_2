@@ -37,9 +37,33 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'SAVANNAH_CHALLENGE_2',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.test',
+    'oauth2_provider',
+    'social_django',
+    'SAVANNAH_CHALLENGE_2',   
 ]
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.open_id_connect.OpenIdConnectAuth',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_OPENIDCONNECT_KEY = '' # client id
+SOCIAL_AUTH_OPENIDCONNECT_SECRET = '' # OpenID Connect provided..
+SOCIAL_AUTH_OPENIDCONNECT_OIDC_ENDPOINT = '' # the token endpoint, provided by OpenID Connect
+SOCIAL_AUTH_OPENIDCONNECT_USE_NONCE = False
+
+LOGIN_URL = '' # Login details
+LOGIN_REDIRECT_URL = '' # Home
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
