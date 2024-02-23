@@ -1,0 +1,37 @@
+name: Django CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests and coverage
+      run: |
+        coverage run --source='.' manage.py test
+        coverage report -m
+
+    - name: Send SMS Alert
+      run: |
+        # Add your command/script to send SMS alert here
+
+    - name: Deploy
+      run: |
+        # Add your deployment command/script here
